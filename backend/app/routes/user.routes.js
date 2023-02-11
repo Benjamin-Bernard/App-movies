@@ -1,4 +1,4 @@
-const user = require("../controllers/user.controller");
+const user = require("../controllers/user.controller.js");
 module.exports = function(app) {
 
     app.post('/api/user/register', user.register);
@@ -7,9 +7,9 @@ module.exports = function(app) {
 
     app.get('/api/user/getAllUsers', user.getAllUsers);
 
-    app.update('/api/user/updateAccount', user.updateAccount);
+    app.put('/api/user/updateAccount', user.updateAccount);
 
-    app.update('/api/user/updatePassword', user.updatePassword);
+    app.put('/api/user/updatePassword', user.updatePassword);
 
 
 }
