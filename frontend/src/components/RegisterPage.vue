@@ -13,15 +13,15 @@
       </div>
       <div class="padding-bottom">
         <label for="mail" class="padding-right-79">Mail</label>
-        <input type="text" id="mail" name="mail" v-model="mail">
+        <input type="email" id="mail" name="mail" v-model="mail">
       </div>
       <div class="padding-bottom">
         <label for="password" class="padding-right-38">Password</label>
-        <input type="text" id="password" name="password" v-model="password">
+        <input type="password" id="password" name="password" v-model="password">
       </div>
       <div class="padding-bottom">
         <label for="dateOfBirth" class="padding-right-16">Date Of Birth</label>
-        <input type="text" id="dateOfBirth" name="dateOfBirth" v-model="dateOfBirth">
+        <input type="date" id="dateOfBirth" name="dateOfBirth" v-model="dateOfBirth">
       </div>
       <div class="padding-bottom">
         <label for="local" class="padding-right-70">Local</label>
@@ -36,7 +36,7 @@
         <input type="text" id="subscription" name="subscription" v-model="subscription">
       </div>
       <div class="padding-top-15">
-        <input type="submit" value="Register" class="btn-submit" v-on:click="register">
+        <input type="button" value="Register" class="btn-submit" v-on:click="register">
       </div>
 
 
@@ -56,31 +56,31 @@ export default {
   name: "RegisterPage",
   data(){
     return {
-      firstName : String,
-      lastName : String,
-      mail : String,
-      password : String,
-      dateOfBirth : String,
-      local : String,
-      urlImage : String,
-      subscription : String
+      firstName : "",
+      lastName : "",
+      mail : "",
+      password : "",
+      dateOfBirth : Date,
+      local : [],
+      urlImage : "",
+      subscription : 'none'
     }
   },
   methods:{
     register(){
       const newUser = {
-        firstName: this.firstName(),
-        lastName: this.lastName(),
-        mail: this.mail(),
-        password: this.password(),
-        dateOfBirth: this.dateOfBirth(),
-        local: this.local(),
-        urlImage: this.urlImage(),
-        subscription: this.subscription()
+        firstName: this.firstName,
+        lastName: this.lastName,
+        mail: this.mail,
+        password: this.password,
+        dateOfBirth: this.dateOfBirth,
+        local: this.local,
+        urlImage: this.urlImage,
+        subscription: this.subscription
       }
 
-      http.post("/movies/register",newUser)
-          .then(response => {console.log(response)})
+      http.post("/user/register",newUser)
+          .then(response => {console.log(response.data)})
           .catch(e => {
             if (e.response.status === 500){
               alert("One or many values are already used")
