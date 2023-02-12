@@ -20,7 +20,7 @@
         <input type="password" id="password" name="password" v-model="password">
       </div>
       <div class="padding-bottom">
-        <label for="dateOfBirth" class="padding-right-16">Date Of Birth</label>
+        <label for="dateOfBirth" class="padding-right-72">Date Of Birth</label>
         <input type="date" id="dateOfBirth" name="dateOfBirth" v-model="dateOfBirth">
       </div>
       <div class="padding-bottom">
@@ -38,8 +38,6 @@
       <div class="padding-top-15">
         <input type="button" value="Register" class="btn-submit" v-on:click="register">
       </div>
-
-
     </form>
   </div>
 
@@ -119,8 +117,8 @@ form{
   padding-right:70px;
 }
 
-.padding-right-16{
-  padding-right: 16px;
+.padding-right-72{
+  padding-right: 72px;
 }
 
 .padding-right-38{
